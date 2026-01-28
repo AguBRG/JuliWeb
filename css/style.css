@@ -233,6 +233,7 @@ img   {
     font-size: 1.8rem;
     margin-left: 2rem;
     transition: background-color .3s;
+    text-transform: uppercase;
 }
 
 
@@ -339,7 +340,8 @@ img   {
 .contact-hero {
     justify-content: center;
     align-items: center;
-    height: 42rem;
+    height: 30rem;
+    margin-top: -4rem;
 }
 
 .contact-title-row {

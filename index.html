@@ -4,59 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JuliaBARRIGA</title>
-    <meta name="description" content="Julia Barriga">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>AuraAgile</title>
+    <meta name="description" content="AuraAgile">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="header">
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Juli</h1>
-                </a>
-                <nav class="navegacion">
-                    <a href="index.html" class="navegacion__enlace">Inicio</a>
-                    <a href="newsletter.html" class="navegacion__enlace">Newsletter</a>
-                    <a href="podcast.html" class="navegacion__enlace">Podcast</a>
-                    <a href="cursos.html" class="navegacion__enlace">Cursos</a>
-                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
-                </nav>
-            </div>
+<body class="home-page">
+    <script>
+        window.addEventListener('load', () => {
+            const logo = document.querySelector('.logo--anim');
+            if (!logo) return;
+            setTimeout(() => logo.classList.add('logo--animate'), 100);
+        });
+    </script>
+    <header class="site-header">
+        <div class="contenedor site-header__inner">
+            <a class="logo logo--anim" href="index.html" aria-label="AuraAgile">
+                <h1 class="logo__nombre no-margin centrar-texto">
+                    <span class="logo__part logo__part--left">AUR</span>
+                    <span class="logo__mark"><span class="logo__mark-left">A</span><span class="logo__mark-right">A</span></span>
+                    <span class="logo__part logo__part--right logo__bold">GILE</span>
+                </h1>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navegacion" id="primary-nav" aria-hidden="true">
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+                <a href="blog.html" class="navegacion__enlace">Blog</a>
+                <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+            </nav>
         </div>
     </header>
-    <div class="container">
-        <section class="parallax">
-            <img src="img/fondo_celeste.png" id="hill1">
-            <h2 id="parallax__titulo">JuliaBARRIGA</h2>
-            <img src="img/banner_5.png" id="hill2">
-           
-        </section>
-        <img src="img/fondo_azul.png" id="hill2">
-        <section class="contin">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit qui in voluptates soluta ut, sed expedita sapiente reiciendis laboriosam sit sint harum, obcaecati autem cum ullam? Non reiciendis laboriosam praesentium.</p>
-        </section>
-    </div>
 
-
-    <script src="js/script.js"></script>
-
-    <footer class="footer">
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Juli</h1>
-                </a>
-                <nav class="navegacion">
-                    <a href="index.html" class="navegacion__enlace">Inicio</a>
-                    <a href="newsletter.html" class="navegacion__enlace">Newsletter</a>
-                    <a href="podcast.html" class="navegacion__enlace">Podcast</a>
-                    <a href="cursos.html" class="navegacion__enlace">Cursos</a>
-                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
-                </nav>
+    <main class="hero">
+        <div class="contenedor hero__content">
+            <div class="hero__card">
+                <div class="hero__split">
+                    <div class="hero__line hero__line--left">
+                        <p class="hero__statement">Impulsar la evolución de organizaciones hacia ecosistemas ágiles donde el éxito nace del bienestar y el talento humano.</p>
+                    </div>
+                    <div class="hero__line hero__line--right">
+                        <h3 class="hero__label">PROPÓSITO</h3>
+                    </div>
+                </div>
+                <div class="hero__split hero__split--reverse">
+                    <div class="hero__line hero__line--left">
+                        <h3 class="hero__label">VISIÓN</h3>
+                    </div>
+                    <div class="hero__line hero__line--right">
+                        <p class="hero__statement">Ser el catalizador de una transformación global que evoluciona organizaciones a través de la agilidad, el bienestar integral y el intercambio colaborativo.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="contenedor site-footer__inner">
+            <span class="site-footer__brand">AURA<span class="site-footer__brand--bold">AGILE</span></span>
+            <nav class="navegacion">
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+                <a href="blog.html" class="navegacion__enlace">Blog</a>
+                <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+            </nav>
+        </div>
     </footer>
+    <script>
+        window.addEventListener('load', () => {
+            const logo = document.querySelector('.logo--anim');
+            if (logo) setTimeout(() => logo.classList.add('logo--animate'), 100);
+            const toggle = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('primary-nav');
+            if (!toggle || !nav) return;
+            toggle.addEventListener('click', () => {
+                const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+                nav.setAttribute('aria-hidden', String(isOpen));
+                nav.classList.toggle('is-open');
+            });
+        });
+    </script>
 </body>
 </html>

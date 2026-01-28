@@ -4,105 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JuliaBARRIGA | Podcast</title>
-    <meta name="description" content="Podcast y videos de Julia Barriga">
+    <title>AuraAGILE | Blog</title>
+    <meta name="description" content="Blog de AuraAGILE">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="podcast-page">
-    <header class="header">
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Juli</h1>
-                </a>
-                <nav class="navegacion">
-                    <a href="index.html" class="navegacion__enlace">Inicio</a>
-                    <a href="newsletter.html" class="navegacion__enlace">Newsletter</a>
-                    <a href="podcast.html" class="navegacion__enlace">Podcast</a>
-                    <a href="cursos.html" class="navegacion__enlace">Cursos</a>
-                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
-                </nav>
-            </div>
+<body class="aura-page blog-page">
+    <script>
+        window.addEventListener('load', () => {
+            const logo = document.querySelector('.logo--anim');
+            if (!logo) return;
+            setTimeout(() => logo.classList.add('logo--animate'), 100);
+        });
+    </script>
+    <header class="site-header">
+        <div class="contenedor site-header__inner">
+            <a class="logo logo--anim" href="index.html" aria-label="AuraAgile">
+                <h1 class="logo__nombre no-margin centrar-texto">
+                    <span class="logo__part logo__part--left">AUR</span>
+                    <span class="logo__mark"><span class="logo__mark-left">A</span><span class="logo__mark-right">A</span></span>
+                    <span class="logo__part logo__part--right logo__bold">GILE</span>
+                </h1>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navegacion" id="primary-nav" aria-hidden="true">
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+                <a href="blog.html" class="navegacion__enlace">Blog</a>
+                <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+            </nav>
         </div>
     </header>
 
-    <main class="podcast-hero">
-        <div class="podcast-hero__inner">
-            <div class="podcast-icon" aria-hidden="true">
+    <main class="blog-hero">
+        <div class="blog-hero__inner">
+            <div class="blog-icon" aria-hidden="true">
                 <span></span><span></span><span></span><span></span>
             </div>
-            <p class="podcast-eyebrow">Podcast</p>
-            <h2 class="podcast-title">Pasa a la accion</h2>
-            <p class="podcast-subtitle">
-                Un podcast semanal con ideas practicas sobre productividad,
-                mentalidad y negocios. Episodios cortos para aplicar en tu semana.
-            </p>
+            <div class="blog-title-row blog-title--line">
+                <h2 class="blog-title">IDEAS</h2>
+                <p class="blog-subtitle blog-reveal">
+                    Artículos breves con enfoque humano sobre agilidad, bienestar y cultura organizacional.
+                </p>
+            </div>
         </div>
-        <span class="podcast-arrow" aria-hidden="true"></span>
+        <span class="blog-arrow" aria-hidden="true"></span>
     </main>
 
-    <section class="podcast-content">
-        <div class="podcast-content__grid">
-            <div class="podcast-subscribe">
-                <h3>Suscribite</h3>
-                <p>Escucha los episodios en tu plataforma favorita.</p>
-                <div class="podcast-platforms">
-                    <span class="platform-pill">Spotify</span>
-                    <span class="platform-pill">Apple</span>
-                    <span class="platform-pill">Google</span>
-                    <span class="platform-pill">Amazon</span>
+    <section class="blog-content">
+        <div class="blog-content__grid">
+            <div class="blog-subscribe">
+                <h3>Explorá temas</h3>
+                <p>Recorré ideas clave para equipos y líderes en evolución.</p>
+                <div class="blog-tags">
+                    <span class="platform-pill">Agilidad</span>
+                    <span class="platform-pill">Bienestar</span>
+                    <span class="platform-pill">Cultura</span>
+                    <span class="platform-pill">Liderazgo</span>
                 </div>
-                <div class="podcast-art">
+                <div class="blog-art">
                     <img src="img/banner_3.jpg" alt="">
                 </div>
             </div>
 
-            <div class="podcast-episodes">
+            <div class="blog-posts">
                 <article class="episode-card">
                     <span class="episode-badge">Nuevo</span>
-                    <h4>#64 | Redefinir el exito: encuentra tu propia version</h4>
+                    <h4>#64 | Redefinir el éxito: tu versión auténtica</h4>
                     <p>
                         Una conversacion directa sobre como medir tu exito sin seguir
                         reglas ajenas y con foco en lo que realmente queres construir.
                     </p>
-                    <button type="button" class="episode-play">Escuchar episodio</button>
+                    <button type="button" class="episode-play">Leer artículo</button>
                 </article>
 
                 <article class="episode-card">
-                    <h4>#63 | El relleno es para los peluches: asi funciona un negocio serio</h4>
+                    <h4>#63 | Menos ruido, más impacto en equipos ágiles</h4>
                     <p>
                         Valor real, foco y acciones concretas para hacer crecer un negocio
                         sin distraerte con lo accesorio.
                     </p>
-                    <button type="button" class="episode-play">Escuchar episodio</button>
+                    <button type="button" class="episode-play">Leer artículo</button>
                 </article>
 
                 <div class="youtube-block">
                     <div class="youtube-grid" id="youtube-grid" aria-live="polite">
-                        <p class="youtube-loading">Cargando videos...</p>
+                        <p class="youtube-loading">Cargando contenidos...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Juli</h1>
-                </a>
-                <nav class="navegacion">
-                    <a href="index.html" class="navegacion__enlace">Inicio</a>
-                    <a href="newsletter.html" class="navegacion__enlace">Newsletter</a>
-                    <a href="podcast.html" class="navegacion__enlace">Podcast</a>
-                    <a href="cursos.html" class="navegacion__enlace">Cursos</a>
-                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
-                </nav>
-            </div>
+    <footer class="site-footer">
+        <div class="contenedor site-footer__inner">
+            <span class="site-footer__brand">AURA<span class="site-footer__brand--bold">AGILE</span></span>
+            <nav class="navegacion">
+                <a href="index.html" class="navegacion__enlace">Inicio</a>
+                <a href="blog.html" class="navegacion__enlace">Blog</a>
+                <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+            </nav>
+        </div>
     </footer>
+    <script>
+        window.addEventListener('load', () => {
+            const toggle = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('primary-nav');
+            if (!toggle || !nav) return;
+            toggle.addEventListener('click', () => {
+                const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!isOpen));
+                nav.setAttribute('aria-hidden', String(isOpen));
+                nav.classList.toggle('is-open');
+            });
+        });
+    </script>
     <script>
       (function () {
         var endpoint = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTgfRjbEjARrsNTNlw2aqopZr26DTx3giLR-QswJr9xe8Ce0WQ95zTkCbCTVATSWhwR47RdtheVoLDw/pub?gid=0&single=true&output=csv';
@@ -260,6 +280,25 @@
             grid.innerHTML = '<p class="youtube-loading">No se pudo cargar la lista: ' + (err && err.message ? err.message : '') + '</p>';
           });
       })();
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            const reveal = document.querySelector('.blog-reveal');
+            if (!reveal) return;
+            if (!('IntersectionObserver' in window)) {
+                reveal.classList.add('is-visible');
+                return;
+            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.4 });
+            observer.observe(reveal);
+        });
     </script>
 </body>
 </html>

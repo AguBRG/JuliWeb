@@ -1,2 +1,6 @@
 [functions]
   directory = "netlify/functions"
+
+[build]
+  publish = "."
+  environment = { SECRETS_SCAN_OMIT_PATHS = "studio/**" }

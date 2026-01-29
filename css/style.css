@@ -697,6 +697,7 @@ body.blog-page {
 .blog-posts {
     display: grid;
     gap: 2.4rem;
+    align-items: center;
 }
 
 .blog-loading {
@@ -711,6 +712,8 @@ body.blog-page {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 72rem;
 }
 
 .episode-card h4 {
@@ -731,6 +734,13 @@ body.blog-page {
     white-space: pre-line;
     margin-top: 1.2rem;
     color: rgba(247, 243, 239, 0.75);
+}
+
+.blog-body p {
+    margin: 1rem 0;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 .blog-body.is-collapsed {

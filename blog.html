@@ -154,9 +154,13 @@
           }
 
           if (item.body) {
-            var body = document.createElement('p');
+            var body = document.createElement('div');
             body.className = 'blog-body';
-            body.textContent = item.body;
+            var rendered = renderPortableText(item.body);
+            if (!rendered && typeof item.body === 'string') {
+              rendered = '<p>' + escapeHtml(item.body) + '</p>';
+            }
+            body.innerHTML = rendered || '';
             article.appendChild(body);
           }
 
@@ -171,6 +175,43 @@
           }
 
           return article;
+        }
+
+        function escapeHtml(value) {
+          return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function renderPortableText(blocks) {
+          if (!Array.isArray(blocks)) return '';
+          return blocks.map(function (block) {
+            if (!block || block._type !== 'block' || !Array.isArray(block.children)) {
+              return '';
+            }
+            var text = block.children.map(function (child) {
+              if (!child || child._type !== 'span') return '';
+              var chunk = escapeHtml(child.text || '');
+              var marks = child.marks || [];
+              marks.forEach(function (mark) {
+                if (mark === 'strong') chunk = '<strong>' + chunk + '</strong>';
+                if (mark === 'em') chunk = '<em>' + chunk + '</em>';
+                if (mark === 'underline') chunk = '<u>' + chunk + '</u>';
+                if (typeof mark === 'string' && block.markDefs) {
+                  var def = block.markDefs.find(function (d) { return d._key === mark && d._type === 'link'; });
+                  if (def && def.href) {
+                    var href = escapeHtml(def.href);
+                    chunk = '<a href="' + href + '" target="_blank" rel="noopener">' + chunk + '</a>';
+                  }
+                }
+              });
+              return chunk;
+            }).join('');
+            return text ? '<p>' + text + '</p>' : '';
+          }).join('');
         }
 
         fetch('/.netlify/functions/blog')

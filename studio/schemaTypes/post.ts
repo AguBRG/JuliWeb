@@ -40,8 +40,34 @@ export const post = defineType({
     defineField({
       name: 'body',
       title: 'Contenido',
-      type: 'text',
-      rows: 10,
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            decorators: [
+              {title: 'Negrita', value: 'strong'},
+              {title: 'Cursiva', value: 'em'},
+              {title: 'Subrayado', value: 'underline'},
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Enlace',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL',
+                    validation: (Rule) => Rule.uri({allowRelative: false}),
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
     }),
   ],
 })

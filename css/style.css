@@ -722,6 +722,12 @@ body.blog-page {
     color: rgba(247, 243, 239, 0.75);
 }
 
+.blog-body {
+    white-space: pre-line;
+    margin-top: 1.2rem;
+    color: rgba(247, 243, 239, 0.75);
+}
+
 .episode-badge {
     display: inline-block;
     background: #7a5de8;

@@ -153,6 +153,13 @@
             article.appendChild(desc);
           }
 
+          if (item.body) {
+            var body = document.createElement('p');
+            body.className = 'blog-body';
+            body.textContent = item.body;
+            article.appendChild(body);
+          }
+
           if (item.image) {
             var img = document.createElement('img');
             img.src = item.image;

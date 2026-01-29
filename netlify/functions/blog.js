@@ -16,6 +16,7 @@ exports.handler = async function handler() {
     _id,
     title,
     summary,
+    body,
     "image": thumbnail.asset->url,
     publishedAt,
     "slug": slug.current

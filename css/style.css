@@ -216,6 +216,19 @@ img   {
     transition: opacity 0.3s ease;
 }
 
+.site-header .navegacion__enlace::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.45rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .site-header .navegacion__enlace:hover,
 .site-header .navegacion__enlace:active {
     background: transparent;
@@ -224,6 +237,11 @@ img   {
 
 .site-header .navegacion__enlace:hover::after,
 .site-header .navegacion__enlace:active::after {
+    opacity: 1;
+}
+
+.site-header .navegacion__enlace:hover::before,
+.site-header .navegacion__enlace:active::before {
     opacity: 1;
 }
 .navegacion__enlace {
@@ -355,7 +373,7 @@ img   {
 }
 
 .contact-title {
-    font-size: 5.2rem;
+    font-size: 5.2rem !important;
     margin: 0;
     letter-spacing: 0.18em;
     white-space: nowrap;
@@ -388,7 +406,7 @@ img   {
 }
 
 .contact-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.75);
     margin: 0;
@@ -418,7 +436,7 @@ img   {
 .contact-section .container {
 
     max-width: 500px;
-    margin: 0 auto;
+    margin: -2.4rem auto 0;
     text-align: center;
 }
 
@@ -448,11 +466,11 @@ img   {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 12px;
-    font-size: 1rem;
+    padding: 9px;
+    font-size: 0.9rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
-    margin-bottom: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
     background: rgba(12, 14, 20, 0.65);
     color: #f7f3ef;
     backdrop-filter: blur(10px);
@@ -465,17 +483,23 @@ img   {
 }
 
 .contact-form button {
-    background-color: #0056b3;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    background: rgba(12, 14, 20, 0.65);
+    color: #f7f3ef;
+    padding: 10px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: var(--fuenteParrafo);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     cursor: pointer;
+    margin-bottom: 3rem;
 }
 
 .contact-form button:hover {
-    background-color: #004494;
+    background: rgba(12, 14, 20, 0.85);
 }
 
 .footer {
@@ -501,6 +525,7 @@ body.blog-page {
 
 .blog-hero__inner {
     max-width: 720px;
+    margin-top: -10rem;
 }
 
 .blog-icon {
@@ -1304,6 +1329,19 @@ body.newsletter-page::after {
     transition: opacity 0.3s ease;
 }
 
+.site-footer .navegacion__enlace::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.45rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .site-footer .navegacion__enlace:hover,
 .site-footer .navegacion__enlace:active {
     background: transparent;
@@ -1312,6 +1350,11 @@ body.newsletter-page::after {
 
 .site-footer .navegacion__enlace:hover::after,
 .site-footer .navegacion__enlace:active::after {
+    opacity: 1;
+}
+
+.site-footer .navegacion__enlace:hover::before,
+.site-footer .navegacion__enlace:active::before {
     opacity: 1;
 }
 

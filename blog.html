@@ -132,21 +132,33 @@
           return date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short', day: 'numeric' });
         }
 
+        function formatDateLong(value) {
+          if (!value) return '';
+          var date = new Date(value);
+          if (Number.isNaN(date.getTime())) return '';
+          return date.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
         function buildCard(item, index) {
           var article = document.createElement('article');
           article.className = 'episode-card';
-
-          if (item.publishedAt) {
-            var badge = document.createElement('span');
-            badge.className = 'episode-badge';
-            badge.textContent = formatDate(item.publishedAt);
-            article.appendChild(badge);
-          }
+          
+          var meta = document.createElement('div');
+          meta.className = 'post-meta';
 
           var number = document.createElement('span');
           number.className = 'post-number';
-          number.textContent = String(index + 1).padStart(2, '0');
-          article.appendChild(number);
+          number.textContent = '#' + String(index + 1).padStart(2, '0');
+          meta.appendChild(number);
+
+          if (item.publishedAt) {
+            var date = document.createElement('span');
+            date.className = 'post-date';
+            date.textContent = formatDateLong(item.publishedAt);
+            meta.appendChild(date);
+          }
+
+          article.appendChild(meta);
 
           var title = document.createElement('h4');
           title.textContent = item.title || 'Artículo';

@@ -716,6 +716,17 @@ body.blog-page {
     max-width: 72rem;
 }
 
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 0.6rem;
+    color: rgba(247, 243, 239, 0.7);
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .episode-card h4 {
     margin: 1rem 0;
     font-size: 2.2rem;
@@ -766,17 +777,13 @@ body.blog-page {
 }
 
 .post-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(247, 243, 239, 0.8);
-    font-size: 1.3rem;
-    letter-spacing: 0.08em;
-    margin-top: 0.2rem;
+    color: rgba(247, 243, 239, 0.78);
+}
+
+.post-date {
+    color: rgba(247, 243, 239, 0.55);
+    letter-spacing: 0.04em;
+    text-transform: none;
 }
 
 .episode-badge {

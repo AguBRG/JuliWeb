@@ -132,7 +132,7 @@
           return date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short', day: 'numeric' });
         }
 
-        function buildCard(item) {
+        function buildCard(item, index) {
           var article = document.createElement('article');
           article.className = 'episode-card';
 
@@ -143,12 +143,18 @@
             article.appendChild(badge);
           }
 
+          var number = document.createElement('span');
+          number.className = 'post-number';
+          number.textContent = String(index + 1).padStart(2, '0');
+          article.appendChild(number);
+
           var title = document.createElement('h4');
           title.textContent = item.title || 'Artículo';
           article.appendChild(title);
 
           if (item.summary) {
             var desc = document.createElement('p');
+            desc.className = 'blog-summary';
             desc.textContent = item.summary;
             article.appendChild(desc);
           }
@@ -161,7 +167,19 @@
               rendered = '<p>' + escapeHtml(item.body) + '</p>';
             }
             body.innerHTML = rendered || '';
+            body.classList.add('is-collapsed');
             article.appendChild(body);
+
+            var toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'blog-toggle';
+            toggle.textContent = 'LEER MÁS';
+            toggle.addEventListener('click', function () {
+              var isOpen = body.classList.toggle('is-open');
+              body.classList.toggle('is-collapsed', !isOpen);
+              toggle.textContent = isOpen ? 'LEER MENOS' : 'LEER MÁS';
+            });
+            article.appendChild(toggle);
           }
 
           if (item.image) {
@@ -222,8 +240,8 @@
               return;
             }
             container.innerHTML = '';
-            items.forEach(function (item) {
-              container.appendChild(buildCard(item));
+            items.forEach(function (item, index) {
+              container.appendChild(buildCard(item, index));
             });
           })
           .catch(function () {

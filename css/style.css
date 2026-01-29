@@ -722,10 +722,51 @@ body.blog-page {
     color: rgba(247, 243, 239, 0.75);
 }
 
+.blog-summary {
+    font-size: 1.6rem;
+    margin-top: 0.8rem;
+}
+
 .blog-body {
     white-space: pre-line;
     margin-top: 1.2rem;
     color: rgba(247, 243, 239, 0.75);
+}
+
+.blog-body.is-collapsed {
+    display: none;
+}
+
+.blog-toggle {
+    margin-top: 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #f7f3ef;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.blog-toggle:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.post-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(247, 243, 239, 0.8);
+    font-size: 1.3rem;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
 }
 
 .episode-badge {

@@ -699,6 +699,11 @@ body.blog-page {
     gap: 2.4rem;
 }
 
+.blog-loading {
+    text-align: center;
+    color: rgba(247, 243, 239, 0.7);
+}
+
 .episode-card {
     background: rgba(12, 14, 20, 0.65);
     border-radius: 2rem;

@@ -1,11 +1,11 @@
-const API_VERSION = process.env.SANITY_API_VERSION || '2024-06-01';
+const API_VERSION = process.env.SANITY_API_VERSION;
 
 exports.handler = async function handler() {
   const projectId = process.env.SANITY_PROJECT_ID;
-  const dataset = process.env.SANITY_DATASET || 'production';
+  const dataset = process.env.SANITY_DATASET;
   const token = process.env.SANITY_TOKEN;
 
-  if (!projectId || !token) {
+  if (!projectId || !token || !dataset || !API_VERSION) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Missing Sanity env vars.' })

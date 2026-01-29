@@ -747,63 +747,6 @@ body.blog-page {
 }
 
 
-.youtube-header h3 {
-    font-size: 3rem;
-    margin-bottom: 0.8rem;
-    margin-top: 0;
-}
-
-.youtube-grid {
-    display: grid;
-    gap: 2.4rem;
-    grid-template-columns: 1fr;
-    max-width: 100%;
-}
-
-.youtube-loading {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: #3a3a3a;
-}
-
-.youtube-card {
-    background: rgba(12, 14, 20, 0.65);
-    border-radius: 2.4rem;
-    padding: 3rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.youtube-card__content h4 {
-    margin: 0 0 1rem;
-    font-size: 2.4rem;
-}
-
-.youtube-card__content p {
-    margin: 0 0 2rem;
-    color: rgba(247, 243, 239, 0.75);
-}
-
-.youtube-embed {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 0;
-    border-radius: 1.6rem;
-    margin-top: 2rem;
-    background: rgba(12, 14, 20, 0.55);
-}
-
-.youtube-fallback {
-    display: inline-block;
-    margin-top: 1.6rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    padding: 0.8rem 1.6rem;
-    color: #f7f3ef;
-    background: rgba(255, 255, 255, 0.08);
-}
-
 @keyframes pulse {
     0%, 100% { transform: scaleY(0.7); opacity: 0.6; }
     50% { transform: scaleY(1.1); opacity: 1; }

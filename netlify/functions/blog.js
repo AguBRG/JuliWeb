@@ -16,9 +16,9 @@ exports.handler = async function handler() {
     _id,
     title,
     summary,
-    "image": mainImage.asset->url,
+    "image": thumbnail.asset->url,
     publishedAt,
-    slug
+    "slug": slug.current
   }`);
 
   const url = `https://${projectId}.api.sanity.io/v${API_VERSION}/data/query/${dataset}?query=${query}`;

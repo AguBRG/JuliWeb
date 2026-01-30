@@ -700,6 +700,11 @@ body.blog-page {
     align-items: center;
 }
 
+.episode-card .blog-tags {
+    margin-top: 1.2rem;
+    gap: 1rem;
+}
+
 .blog-loading {
     text-align: center;
     color: rgba(247, 243, 239, 0.7);

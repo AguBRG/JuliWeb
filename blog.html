@@ -59,17 +59,10 @@
             <div class="blog-subscribe">
                 <h3>Explorá temas</h3>
                 <p>Recorré ideas clave para equipos y líderes en evolución.</p>
-                <div class="blog-tags">
-                    <span class="platform-pill">Agilidad</span>
-                    <span class="platform-pill">Bienestar</span>
-                    <span class="platform-pill">Cultura</span>
-                    <span class="platform-pill">Liderazgo</span>
-                </div>
-                <div class="blog-art">
-                    <img src="img/banner_3.jpg" alt="">
+                <div class="blog-tags" id="blog-tags">
+                    <span class="platform-pill">Cargando...</span>
                 </div>
             </div>
-
             <div class="blog-posts" id="blog-posts" aria-live="polite">
                 <p class="blog-loading">Cargando artículos...</p>
             </div>
@@ -139,7 +132,7 @@
           return date.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        function buildCard(item, index) {
+        function buildCard(item, numberValue) {
           var article = document.createElement('article');
           article.className = 'episode-card';
           
@@ -148,7 +141,7 @@
 
           var number = document.createElement('span');
           number.className = 'post-number';
-          number.textContent = '#' + String(index + 1).padStart(2, '0');
+          number.textContent = '#' + String(numberValue).padStart(2, '0');
           meta.appendChild(number);
 
           if (item.publishedAt) {
@@ -169,6 +162,19 @@
             desc.className = 'blog-summary';
             desc.textContent = item.summary;
             article.appendChild(desc);
+          }
+
+          if (Array.isArray(item.tags) && item.tags.length) {
+            var tags = document.createElement('div');
+            tags.className = 'blog-tags';
+            item.tags.forEach(function (tag) {
+              if (!tag) return;
+              var pill = document.createElement('span');
+              pill.className = 'platform-pill';
+              pill.textContent = tag;
+              tags.appendChild(pill);
+            });
+            article.appendChild(tags);
           }
 
           if (item.body) {
@@ -244,20 +250,49 @@
           }).join('');
         }
 
+        function renderTags(tags) {
+          var container = document.getElementById('blog-tags');
+          if (!container) return;
+          container.innerHTML = '';
+          if (!tags.length) {
+            var empty = document.createElement('span');
+            empty.className = 'platform-pill';
+            empty.textContent = 'Sin tags';
+            container.appendChild(empty);
+            return;
+          }
+          tags.forEach(function (tag) {
+            var pill = document.createElement('span');
+            pill.className = 'platform-pill';
+            pill.textContent = tag;
+            container.appendChild(pill);
+          });
+        }
+
         fetch('/.netlify/functions/blog')
           .then(function (res) { return res.json(); })
           .then(function (items) {
             if (!Array.isArray(items) || !items.length) {
               container.innerHTML = '<p class=\"blog-loading\">No hay artículos todavía.</p>';
+              renderTags([]);
               return;
             }
             container.innerHTML = '';
+            var tagSet = new Set();
             items.forEach(function (item, index) {
-              container.appendChild(buildCard(item, index));
+              if (Array.isArray(item.tags)) {
+                item.tags.forEach(function (tag) {
+                  if (tag) tagSet.add(tag);
+                });
+              }
+              var numberValue = items.length - index;
+              container.appendChild(buildCard(item, numberValue));
             });
+            renderTags(Array.from(tagSet));
           })
           .catch(function () {
             container.innerHTML = '<p class=\"blog-loading\">No se pudo cargar el blog.</p>';
+            renderTags([]);
           });
       })();
     </script>

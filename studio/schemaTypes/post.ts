@@ -32,6 +32,13 @@ export const post = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {layout: 'tags'},
+    }),
+    defineField({
       name: 'thumbnail',
       title: 'Imagen',
       type: 'image',
